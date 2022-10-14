@@ -16,15 +16,15 @@ class Handler implements URLHandler {
         }
         else if(url.getPath().contains("/search")){
             String[] parameters = url.getQuery().split("=");
-            ArrayList<String> chosenWords = new ArrayList<String>();
+            ArrayList<String> searchedWords = new ArrayList<String>();
             if (parameters[0].equals("input")){
                 for(int i = 0; i < words.size(); i++){
                     if(words.get(i).contains(parameters[1])){
-                        chosenWords.add(0, words.get(i));
+                        searchedWords.add(0, words.get(i));
                     }
                 }
             }
-            return chosenWords.toString();
+            return searchedWords.toString();
         }
          else if (url.getPath().equals("/")) {
             return "Search or add a word";
